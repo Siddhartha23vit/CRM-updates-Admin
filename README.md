@@ -25,9 +25,6 @@ npm i
 nodemon index.js
 ~~~
 
-# Author:
-## Written by damarudh varma 😁
-
 
 
 
