@@ -18,7 +18,7 @@
 
 /* Header Styles */
 .card-header {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   padding: 1.5rem;
   color: white;
   display: flex;
@@ -142,7 +142,7 @@
 .btn-associate-list:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed);
   color: white;
-  border: none;
+  border-color: white;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(33, 147, 176, 0.2);
 }
@@ -309,4 +309,21 @@
   .commission-table td {
     padding: 0.75rem;
   }
+}
+.btn-sm{
+  background: white;
+  color: #1c7a94;
+  border-color: #1c7a94;
+}
+.btn-sm:hover{
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+}
+.gradient-button{
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+}
+.gradient-button:hover{
+  background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+  color: white;
 }

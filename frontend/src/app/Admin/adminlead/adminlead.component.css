@@ -65,7 +65,7 @@
   }
 
   .card-header {
-    background: linear-gradient(to right, #4b6cb7, #182848);
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
     color: white;
     border-radius: 12px 12px 0 0 !important;
     padding: 1.2rem;
@@ -78,31 +78,50 @@
 
   /* Button Gradients */
   .btn-gradient-primary {
-    background: linear-gradient(to right, #4b6cb7, #182848);
-    color: white;
+    background: white;
+    color: #2193b0;
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     transition: all 0.3s ease;
+    border-color: #2193b0;
   }
+.btn-gradient-primary:hover{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+  border: 1px solid white;
 
+}
   .btn-gradient-success {
-    background: linear-gradient(to right, #11998e, #38ef7d);
-    color: white;
-    border: none;
+    background: white;
+    color: #1c7a94;
+    border-color: #1c7a94;
   }
-
+.btn-gradient-success:hover{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+  border: 1px solid white;
+}
   .btn-gradient-info {
-    background: linear-gradient(to right, #2193b0, #6dd5ed);
-    color: white;
-    border: none;
+    background: white;
+    color: #1c7a94;
+    border-color: #1c7a94;
   }
-
+.btn-gradient-info:hover{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+  border: 1px solid white;
+}
   .btn-gradient-warning {
-    background: linear-gradient(to right, #f2994a, #f2c94c);
-    color: white;
-    border: none;
+    background: white;
+    color: #1c7a94;
+    border-color: #1c7a94;
   }
+.btn-gradient-warning:hover{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  color: white;
+  border: 1px solid white;
+}
 
   /* Form Controls */
   .custom-input, .custom-select {
@@ -197,6 +216,7 @@
   .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: white;
   }
 
   /* Table Hover Effect */

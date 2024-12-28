@@ -7,7 +7,7 @@
 }
 
 .card-header {
-  background-color: #fff;
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   border-bottom: 1px solid #edf2f7;
   padding: 1rem 1.5rem;
   border-radius: 8px 8px 0 0;
@@ -141,11 +141,12 @@
 .btn-outline-success {
   color: #3498db;
   border: 1px solid #3498db;
+  background-color: white;
 }
 
 .btn-outline-success:hover {
   background: linear-gradient(135deg, #3498db, #2980b9);
-  border-color: transparent;
+  border-color: white;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);

@@ -1,0 +1,17 @@
+.card-header{
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+}   
+.btn-outline-success{
+    background: white;
+    border: 1px solid #2196F3;
+    color: #2196F3;
+}
+.btn-outline-success:hover{
+    background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+    color: white;
+    border-color: white;
+}
+

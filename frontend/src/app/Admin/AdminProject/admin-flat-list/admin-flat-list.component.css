@@ -2,7 +2,9 @@
   border-color: #3498db;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
 }
-
+.card-header{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
 .btn-success {
   background: linear-gradient(135deg, #3498db, #2980b9);
   border: none;
@@ -17,12 +19,13 @@
 
 .btn-outline-success {
   color: #3498db;
+  background-color: white;
   border: 1px solid #3498db;
 }
 
 .btn-outline-success:hover {
   background: linear-gradient(135deg, #3498db, #2980b9);
-  border-color: transparent;
+  border-color: white;
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);

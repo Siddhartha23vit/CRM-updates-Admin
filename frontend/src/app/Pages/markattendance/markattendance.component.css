@@ -115,3 +115,18 @@
 ::ng-deep table.with-scroll::-webkit-scrollbar-track {
     background-color: transparent;
 }
+.card-header{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+}
+.btn-list{
+  background: white;
+    color: #2196F3;
+    border: 1px solid #2196F3;
+}
+.btn-list:hover{
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+    border: 1px solid #fdfeff;
+    transform: translateY(-2px);
+}

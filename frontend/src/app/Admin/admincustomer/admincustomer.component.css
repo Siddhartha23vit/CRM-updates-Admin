@@ -18,7 +18,7 @@
 }
 
 .gradient-header {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   color: white;
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
@@ -193,6 +193,7 @@
 .action-btn:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed);
   color: white;
+  border-color: white;
   transform: translateY(-1px);
 }
 
@@ -253,6 +254,7 @@
   background: linear-gradient(135deg, #2193b0, #6dd5ed);
   color: white;
   transform: translateY(-1px);
+  border-color: white;
 }
 
 .search-btn i {

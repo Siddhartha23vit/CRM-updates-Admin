@@ -1,384 +1,348 @@
-/* Import animate.css */
-@import 'animate.css/animate.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Clean Background */
-:host {
-  background: #ffffff; /* Keeping the background white for contrast */
-  min-height: 100vh;
-  display: block;
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
-}
-.booking-container{
-  background: var(--background-color);
-  padding: 2rem;
-  min-height: calc(100vh - 64px);
-}
-
-/* Color Variables */
+/* Root Variables */
 :root {
-  --primary-color: #FF00D4; /* Main color */
-  --background-color: #f8f9fa; /* Background color */
-  --text-color: white; /* Text color */
-  --border-color: #dee2e6; /* Border color */
-  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
-  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+  --primary-gradient: linear-gradient(135deg, #2193b0, #6dd5ed);
+  --primary-color: #2193b0;
+  --secondary-color: #6dd5ed;
+  --text-primary: #2c3e50;
+  --text-secondary: #64748b;
+  --background-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
 
-/* Booking Container */
+/* Global Styles */
 .booking-container {
-  padding: 24px;
-  background: var(--background-color);
+  padding: 2rem;
+  background-color: var(--background-light);
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Section Title */
+/* Header Section */
 .section-title {
-  font-size: 28px;
-  color: #1a1f36;
-  margin-bottom: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 2rem 0;
+}
+
+.section-title i {
+  color: var(--primary-color);
 }
 
 /* Glass Card */
 .glass-card {
-  background: var(--light-gradient);
-  border-radius: 16px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-  border: 1px solid #f0f0f0;
-  margin-bottom: 24px;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Card Header */
 .card-header-custom {
-  background: var(--header-gradient);
-  color: var(--text-color);
-  padding: 20px 24px;
-  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  padding: 1.25rem 1.5rem;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 200px;
 }
 
 .card-header-custom h3 {
-  font-size: 20px;
-  font-weight: 600;
   margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.75rem;
+  white-space: nowrap;
 }
 
-/* Gradient Button */
-.gradient-btn {
-  background: var(--primary-color);
-  color: var(--text-color);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  margin-left: 0.75rem;
+}
+
+/* Action Buttons in Header */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.action-buttons .gradient-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  background: white;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+  color: #2193b0;
+}
+
+.action-buttons .gradient-btn:hover {
+  background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+  border:1px solid #2193b0;
+  color:white;
+  transform: translateY(-1px);
+}
+
+/* Search Panel */
+.search-panel .card-body {
+  padding: 1.5rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-field label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(33, 147, 176, 0.1);
+}
+
+.date-range {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.75rem;
 }
 
-.gradient-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 153, 255, 0.3);
-  background: linear-gradient(to right, #0099ff, #00ffcc);
+.date-range span {
+  color: var(--text-secondary);
 }
 
-/* Custom Table */
+.search-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+}
+
+.gradient-btn:hover {background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+  color: white;
+}
+
+.outline-btn {
+  background: transparent;
+  border: 1px solid #2193b0;
+  color: var(--text-secondary);
+}
+
+.outline-btn:hover {
+  background: var(--background-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Table Styles */
+.table-responsive {
+  overflow-x: auto;
+  padding: 1.5rem;
+}
+
 .custom-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 12px;
-  margin: 1rem 0;
+  border-spacing: 0;
 }
 
-.custom-table thead th {
-  background: var(--header-gradient);
-  color: var(--text-color);
-  padding: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.custom-table tbody tr {
-  background: var(--light-gradient);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-
-.custom-table tbody tr:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+.custom-table th {
+  background: var(--background-light);
+  color: var(--text-primary);
+  font-weight: 500;
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .custom-table td {
-  padding: 16px;
-  vertical-align: middle;
-  border: none;
-  border-top: 1px solid #f5f5f5;
-  border-bottom: 1px solid #f5f5f5;
-  font-size: 14px;
-  color: #1a1f36;
-}
-
-.custom-table td:first-child {
-  border-left: 1px solid #f5f5f5;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-
-.custom-table td:last-child {
-  border-right: 1px solid #f5f5f5;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
 }
 
 .info-cell {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.25rem;
 }
 
 .primary-text {
-  font-weight: 600;
-  color: #1a1f36;
-  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .secondary-text {
-  font-size: 13px;
-  color: #6b7280;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
 }
 
+.remark-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Action Buttons */
 .action-cell {
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
 }
 
 .action-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 .update-btn {
-  background: linear-gradient(to right, #00ffcc, #0099ff);
+  background: var(--primary-gradient);
   color: white;
 }
 
 .delete-btn {
-  background: linear-gradient(to right, #ff6b6b, #ff4757);
+  background: linear-gradient(135deg, #ff4757, #ff6b6b);
   color: white;
 }
 
-.action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-secondary);
 }
 
-/* Search Panel Styles */
-.card-body {
-  padding: 24px;
+.empty-state i {
+  font-size: 3rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }
 
-/* Action Buttons Group */
-.action-buttons {
-  display: flex;
-  gap: 12px;
+.empty-state h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Animations */
-.animate__animated {
-  animation-duration: 0.8s;
+.empty-state p {
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .booking-container {
-    padding: 16px;
+    padding: 1rem;
   }
 
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+  .header-section {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .search-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-actions {
+    flex-direction: column;
+  }
+
+  .search-actions .btn {
+    width: 100%;
   }
 
   .card-header-custom {
     flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+    gap: 1rem;
   }
-  
-  .action-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .gradient-btn {
-    padding: 10px 20px;
-    font-size: 13px;
-  }
-  
-  .custom-table {
-    display: block;
-    overflow-x: auto;
-  }
-
-  .custom-table td,
-  .custom-table th {
-    padding: 12px;
-    font-size: 13px;
-  }
-
-  .action-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-}
-
-.btn {
-  padding: 8px 15px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  color: #f1f7f8;
-  border: 1px solid #2193b0;
-}
-
-.btn:hover {
-  background: linear-gradient(135deg, #041c22, #169cba);
-  color: white;
-  transform: translateY(-1px);
-}
-
-.btn i {
-  font-size: 14px;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  color: white;
-  border: none;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #1c7a94, #5ab8cc);
-}
-
-.btn-secondary {
-  background: #f8f9fa;
-  color: #2193b0;
-  border: 1px solid #2193b0;
-}
-
-.btn-secondary:hover {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  color: white;
-}
-
-.btn-danger {
-  background: #fff;
-  color: #dc3545;
-  border: 1px solid #dc3545;
-}
-
-.btn-danger:hover {
-  background: #dc3545;
-  color: #fff;
-}
-
-.btn-warning {
-  background: #fff;
-  color: #ffc107;
-  border: 1px solid #ffc107;
-}
-
-.btn-warning:hover {
-  background: #ffc107;
-  color: #fff;
-}
-
-/* Action Buttons */
-.action-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-/* Action Buttons in Table Cell */
-.action-buttons-cell {
-  display: flex;
-  gap: 8px;
-}
-
-.btn-sm {
-  padding: 6px 12px;
-  font-size: 12px;
-}
-
-/* Search Button */
-.search-btn {
-  padding: 8px 20px;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-  background: #f8f9fa;
-  color: #2193b0;
-  border: 1px solid #2193b0;
-}
-
-.search-btn:hover {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  color: white;
-  transform: translateY(-1px);
-}
-
-.search-btn i {
-  font-size: 14px;
 }

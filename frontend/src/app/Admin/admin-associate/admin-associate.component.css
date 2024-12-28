@@ -81,6 +81,9 @@
 }
 
 /* Card in table styles */
+.card-header {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
 .card-col {
   width: 450px;
   max-width: 450px;
@@ -147,6 +150,14 @@
 }
 
 /* Action buttons */
+.btn{
+  background:white;
+  color: #1c7a94;
+}
+.btn:hover{
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+}
 .btn-sm {
   padding: 0.4rem;
   border-radius: 8px;

@@ -219,14 +219,10 @@ mat-toolbar {
 .nav-item:hover {
   background: linear-gradient(135deg, #2195f356 0%, #1976d26b 100%);
   transform: translateX(4px);
+  color: black;
 }
 
-.nav-item.active {
-  background: linear-gradient(135deg, #2195f356 0%, #1976d26b 100%);
-  color: var(--primary-color);
-  box-shadow: 0 2px 8px rgba(58, 123, 213, 0.15);
-  transform: translateX(4px);
-}
+
 
 /* Icons */
 .nav-item img {
@@ -506,15 +502,17 @@ mat-toolbar {
 
 /* Update hover styles for nav items */
 .nav-item:hover {
-  color: var(--primary-color);
+  color: white;
   transform: translateX(4px);
+  animation: animate 0.3s ease-in-out;
 }
 
 .nav-item.active {
-  background: var(--hover-gradient);
-  color: var(--primary-color);
+  background: linear-gradient(135deg, #2195f356 0%, #1976d26b 100%);
+  color: white;
   box-shadow: 0 2px 8px rgba(58, 123, 213, 0.15);
 }
+
 
 /* Update hover background for buttons */
 .collapse-btn:hover,
