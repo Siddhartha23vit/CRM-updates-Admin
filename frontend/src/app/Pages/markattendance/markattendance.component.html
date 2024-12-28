@@ -1,0 +1,59 @@
+<h1>Attendance</h1>
+<div class="container-fluid mt-5">
+    <div class="card">
+        <div class="card-header custom-outline text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Attendance</h5>
+                <a [routerLink]="['/Admin', 'AdminAttendance']" class="btn">List</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="addattendance()">
+                <div class="form-group row mt-3">
+                    <label for="date" class="col-sm-2 col-form-label">Attendance Date Time: <span class="text-danger">*</span></label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" id="attendanceDateTime" [(ngModel)]="newmarkattendance.Date" name="Date">
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-md-4">
+                        <label for="project">Project:</label>
+                        <select class="form-control" id="project" name="project" [(ngModel)]="newmarkattendance.Project">
+                            <option value="" disabled selected>Select</option>
+                            <ng-container *ngFor="let item of projects">
+                                <option [ngValue]="item.projectName">{{ item.projectName }}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="user">User: <span class="text-danger">*</span></label>
+                        <select class="form-control" id="user" name="user" [(ngModel)]="newmarkattendance.Name">
+                            <option value="" disabled selected>Select User</option>
+                            <ng-container *ngFor="let item of associates">
+                                <option [ngValue]="item.fullName">{{ item.fullName }}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="presentAbsent">Present/Absent: <span class="text-danger">*</span></label>
+                        <select class="form-control" id="presentAbsent" name="presentAbsent" [(ngModel)]="newmarkattendance.status">
+                            <option value="Present" selected>Present</option>
+                            <option value="Absent">Absent</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-sm-12">
+                        <label for="attendanceRemark">Attendance Remark:</label>
+                        <textarea class="form-control" id="attendanceRemark" rows="2" [(ngModel)]="newmarkattendance.Remark" name="Remark"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-sm-12 text-center">
+                        <button type="submit" class="btn custom-outline-pink mx-3">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

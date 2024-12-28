@@ -1,0 +1,131 @@
+<div class="main-container">
+  <div class="content-wrapper">
+    <!-- Enhanced Header Card -->
+    <div class="header-card animate__animated animate__fadeIn">
+      <div class="header-content">
+        <div class="title-section">
+          <div class="logo-wrapper">
+            <i class="fas fa-leaf title-icon pulse"></i>
+          </div>
+          <div class="title-text">
+            <h1>Farm Land Management</h1>
+            <p class="subtitle">Manage your agricultural assets efficiently</p>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn add-btn" routerLink="/Admin/AdminFarmLandList">
+            <span class="btn-content">
+              <i class="fas fa-plus-circle"></i>
+              <span>Add New Project</span>
+            </span>
+            <span class="btn-glow"></span>
+          </button>
+          
+          <button class="action-btn list-btn" routerLink="/Admin/AdminProjectList">
+            <span class="btn-content">
+              <i class="fas fa-list"></i>
+              <span>Project List</span>
+            </span>
+            <span class="btn-glow"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Search Section -->
+    <div class="search-section animate__animated animate__fadeInUp">
+      <div class="search-container glass-effect">
+        <div class="select-wrapper">
+          <i class="fas fa-project-diagram select-icon"></i>
+          <select class="custom-select" id="projectName" name="searchType" 
+                  [(ngModel)]="selectedProject" (change)="onProjectSelected()">
+            <option value="" disabled selected>Select</option>
+            <ng-container *ngFor="let project of projects">
+              <ng-container *ngIf="project.totalfarmLand">
+                <option [ngValue]="project">{{ project.projectName }}</option>
+              </ng-container>
+            </ng-container>
+          </select>
+        </div>
+        <button class="search-btn" type="button">
+          <span class="btn-content">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+          </span>
+          <span class="btn-glow"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Enhanced Project Info Card -->
+    <div class="project-info-card glass-effect animate__animated animate__fadeInUp" *ngIf="selectedProject">
+      <div class="info-content">
+        <div class="info-icon-wrapper">
+          <i class="fas fa-info-circle info-icon"></i>
+        </div>
+        <div class="project-details">
+          <h3>{{ selectedProject.projectName }}</h3>
+          <div class="stats-container">
+            <div class="stat-item">
+              <i class="fas fa-chart-pie"></i>
+              <span>Total Plots: {{ selectedProject.totalfarmLand }}</span>
+            </div>
+            <div class="date-info">
+              <div class="date-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Start: {{ selectedProject.startDate }}</span>
+              </div>
+              <div class="date-item">
+                <i class="fas fa-flag-checkered"></i>
+                <span>Completion: {{ selectedProject.completionDate }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Table Section -->
+    <div class="table-responsive glass-effect animate__animated animate__fadeInUp" *ngIf="selectedProject">
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th><i class="fas fa-hashtag"></i> Number</th>
+            <th><i class="fas fa-arrows-alt-h"></i> Width</th>
+            <th><i class="fas fa-arrows-alt-v"></i> Depth</th>
+            <th><i class="fas fa-vector-square"></i> Total Size</th>
+            <th><i class="fas fa-tag"></i> Type</th>
+            <th><i class="fas fa-compass"></i> Facing</th>
+            <th><i class="fas fa-rupee-sign"></i> Rate</th>
+            <th><i class="fas fa-percentage"></i> PLC Charges</th>
+            <th><i class="fas fa-money-bill-wave"></i> Amount</th>
+            <th><i class="fas fa-chart-line"></i> Guideline Value</th>
+            <th><i class="fas fa-warehouse"></i> Inventory Type</th>
+            <th><i class="fas fa-info-circle"></i> Status</th>
+            <th><i class="fas fa-comment"></i> Remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let farmLand of FarmLandInputs">
+            <tr class="table-row-hover">
+              <td><input type="text" class="form-input" id="farmlandnumber" placeholder="Enter Number" [(ngModel)]="farmLand.farmLandName"></td>
+              <td><input type="number" class="form-input" placeholder="Width" [(ngModel)]="farmLand.farmLandWidth"></td>
+              <!-- ... other cells with similar styling ... -->
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Enhanced Save Button -->
+    <div class="save-section animate__animated animate__fadeInUp">
+      <button class="save-btn" (click)="addFarmLandList()">
+        <span class="btn-content">
+          <i class="fas fa-save"></i>
+          <span>Save Changes</span>
+        </span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+  </div>
+</div>

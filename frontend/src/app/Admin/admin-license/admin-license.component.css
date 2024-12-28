@@ -1,0 +1,133 @@
+@import 'animate.css';
+
+/* Color Variables */
+:root {
+  --primary-color: #FF00D4; /* Main color */
+  --background-color: #f8f9fa; /* Background color */
+  --text-color: white; /* Text color */
+  --border-color: #dee2e6; /* Border color */
+  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
+  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+}
+
+.license-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.license-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.license-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header-main {
+  background: var(--header-gradient);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+}
+
+.gradient-text {
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.card-header-main .gradient-text {
+  color: var(--text-color);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-content {
+  color: #424242;
+}
+
+.license-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.permission-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.custom-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.custom-list li {
+  position: relative;
+  padding: 0.8rem 0 0.8rem 2rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.custom-list li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+.hover-effect:hover {
+  transform: translateX(10px);
+  color: var(--primary-color);
+}
+
+/* Animation delays */
+.animation-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .license-container {
+    padding: 1rem;
+  }
+  
+  .card-header-main .gradient-text {
+    font-size: 2rem;
+  }
+  
+  .permission-section {
+    padding: 1rem;
+  }
+}

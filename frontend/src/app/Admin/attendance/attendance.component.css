@@ -1,0 +1,273 @@
+.attendance-container {
+    background: var(--background-color);
+    padding: 2rem;
+    min-height: calc(100vh - 64px);
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #FF00D4;
+    --background-color: #f8f9fa;
+    --text-color: white;
+    --border-color: #dee2e6;
+    --header-gradient: linear-gradient(120deg, #00e4d0, #5983e8);
+    --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa);
+}
+
+/* Page Title */
+.page-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+/* Header Card Styling */
+.card-header {
+    background: var(--header-gradient);
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-header h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+/* Entries Dropdown Styling */
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.4rem;
+    min-width: 80px;
+    color: #444;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+    outline: none;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+/* Button styles with blue gradient */
+.custom-outline-pink,
+.btn-primary,
+.btn-submit,
+.custom-outline {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+  
+.custom-outline-pink:hover,
+.btn-primary:hover,
+.btn-submit:hover,
+.custom-outline:hover {
+    background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+    color: white;
+}
+
+/* Reset button style */
+.btn-outline-secondary,
+.btn-reset {
+    background: transparent;
+    color: #2193b0;
+    border: 2px solid #2193b0;
+    transition: all 0.3s ease;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-outline-secondary:hover,
+.btn-reset:hover {
+    background: rgba(33, 147, 176, 0.1);
+    border-color: #1c7a94;
+    color: #1c7a94;
+}
+
+/* Update button style */
+.btn-outline-warning {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+    color: white;
+}
+
+/* Delete button */
+.btn-outline-danger {
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    background: transparent;
+}
+
+.btn-outline-danger:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Table styles */
+.table-container {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+}
+
+th {
+    background: var(--header-gradient);
+    color: var(--text-color);
+    padding: 1rem;
+    font-weight: 500;
+    text-align: left;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+tr:hover td {
+    background-color: rgba(0, 228, 208, 0.02);
+}
+
+/* Status Badges */
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.badge-success {
+    background: #28a745;
+    color: var(--text-color);
+}
+
+.badge-danger {
+    background: #dc3545;
+    color: var(--text-color);
+}
+
+.badge-warning {
+    background: #ffc107;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .action-buttons {
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .custom-outline-pink {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Add these new styles for icons */
+.page-title i {
+    color: var(--primary-color);
+    margin-right: 0.8rem;
+}
+
+.header-icon {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.table-icon {
+    color: #6c757d;
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+}
+
+/* Status badge icons */
+.badge i {
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+}
+
+/* Action column icons */
+.action-icon {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-right: 0.3rem;
+    transition: all 0.2s ease;
+}
+
+.btn-delete i {
+    font-size: 0.9rem;
+}
+
+/* Entries section styling */
+.entries-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+}
+
+.entries-section i {
+    font-size: 1.1rem;
+}

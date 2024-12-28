@@ -1,0 +1,82 @@
+/* Color Variables */
+:root {
+  --primary-color: #FF00D4; /* Main color */
+  --background-color: #f8f9fa; /* Background color */
+  --text-color: white; /* Text color */
+  --border-color: #dee2e6; /* Border color */
+  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
+  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+}
+
+/* Main Container */
+.inventory-list-container {
+  padding: 20px;
+  background: var(--light-gradient);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table-bordered {
+  border: 1px solid var(--border-color);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  text-align: left;
+}
+
+.table-bordered th {
+  background: var(--header-gradient);
+  color: var(--text-color);
+}
+
+/* Scrollable Table */
+.table-scrollable {
+  overflow-x: auto;
+  overflow-y: hidden; 
+}
+
+.table-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+/* Button Styles */
+.custom-outline-btn {
+  background-color: var(--primary-color);
+  color: var(--text-color); /* Text changes to white for better contrast */
+}
+
+.custom-outline-pink {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color); /* Text changes to primary color for better contrast */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.custom-outline-pink:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color); /* Text changes to white for better contrast */
+}
+
+/* Flexbox Utilities */
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .table {
+    font-size: 0.875rem;
+  }
+}

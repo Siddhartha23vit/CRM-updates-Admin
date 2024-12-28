@@ -1,0 +1,23 @@
+<div class="admin-container">
+  <div class="admin-card">
+    <h2 class="admin-title">Site Visit Management</h2>
+    
+    <div class="site-visit-grid">
+      <div class="visit-card" *ngFor="let visit of siteVisits">
+        <div class="visit-header">
+          <h3>{{visit.projectName}}</h3>
+          <span class="visit-date">{{visit.date | date}}</span>
+        </div>
+        <div class="visit-details">
+          <p><strong>Location:</strong> {{visit.location}}</p>
+          <p><strong>Status:</strong> {{visit.status}}</p>
+        </div>
+        <div class="visit-actions">
+          <button class="admin-button">View Details</button>
+          <button class="admin-button">Update Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

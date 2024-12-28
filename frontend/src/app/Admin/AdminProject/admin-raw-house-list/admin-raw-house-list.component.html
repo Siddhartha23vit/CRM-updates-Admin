@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      <h1>Row House Management</h1>
+      <div class="btn-group">
+        <button class="btn custom-outline-pink">
+          <i class="fas fa-plus"></i> New Project
+        </button>
+        <button class="btn custom-outline-pink">
+          <i class="fas fa-list"></i> Project List
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <!-- Search Section -->
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="input-group search-section">
+            <select class="form-control select-project" id="RearNumber" name="searchType" 
+                    [(ngModel)]="selectedProject" (change)="onProjectSelected()">
+              <option value="" disabled selected>Select Project</option>
+              <ng-container *ngFor="let project of projects">
+                <ng-container *ngIf="project.totalrowHouse">
+                  <option [ngValue]="project">{{ project.projectName }}</option>
+                </ng-container>
+              </ng-container>
+            </select>
+            <div class="input-group-append">
+              <button class="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Info -->
+      <div class="project-info-card" *ngIf="selectedProject">
+        <div class="row">
+          <div class="col-md-6">
+            <h5>{{ selectedProject.projectName }}</h5>
+            <p>Total Row Houses: {{ selectedProject.totalrowHouse }}</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>Start: {{ selectedProject.startDate | date:'mediumDate' }}</p>
+            <p>Completion: {{ selectedProject.completionDate | date:'mediumDate' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table Section -->
+      <div class="table-responsive" *ngIf="selectedProject">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Number</th>
+              <th scope="col">Width</th>
+              <th scope="col">Depth</th>
+              <th scope="col">Total Size</th>
+              <th scope="col">Type</th>
+              <th scope="col"> Facing</th>
+              <th scope="col">Rate</th>
+              <th scope="col">PLC Charges %</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Guideline Value</th>
+              <th scope="col">Inventory Type</th>
+              <th scope="col">Status</th>
+              <th scope="col">Remark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="20" class="text-center">
+                <div class="container">
+                  <div class="card mx-auto" style="width: 18rem;">
+                    <div class="card-body" *ngIf="selectedProject">
+                      <h5 class="card-text">{{ selectedProject.projectName }} (Total Plots: {{ selectedProject.totalrowHouse }})</h5>
+                      <p class="card-text">Project start date: {{ selectedProject.startDate }} | Completion date: {{ selectedProject.completionDate }}</p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="gap-row"></tr>
+            <ng-container *ngFor="let rawhouse of rowhouseinputs">
+              <tr>
+                <td>
+                  <input type="text" id="Number" class="form-control" [(ngModel)]="rawhouse.rowHouseName">
+                </td>
+                <td>
+                  <input type="number" id="Width" class="form-control" [(ngModel)]="rawhouse.rowHouseWidth">
+                </td>
+                <td>
+                  <input type="number" id="Depth" class="form-control" [(ngModel)]="rawhouse.rowHouseDepth">
+                </td>
+                <td>
+                  <input type="number" id="totalSize" class="form-control" [(ngModel)]="rawhouse.totalSize">
+                </td>
+                <td>  
+                  <select class="form-control" id="rawhousetype" name="rawhousetype" placeholder="Select Type" required  [(ngModel)]="rawhouse.type">
+                    <option value="" selected>Select Type</option>
+                    <option value="Duplex">Duplex</option>
+                    <option value="Triplex">Triplex</option>
+                    <option value="Quadplex">Quadplex</option>
+                    <option value="Bungalow">Bungalow</option>
+                    <option value="Villa">Villa</option>
+                  </select>
+                </td>
+                <td>  
+                  <select class="form-control" id="rawhouseFacing" name="rawhouseFacing" placeholder="Select Facing" [(ngModel)]="rawhouse.facing">
+                    <option value="" selected>Select Facing</option>
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" id="price" class="form-control" [(ngModel)]="rawhouse.rate" min="0">
+                </td>
+                <td>
+                  <input type="number" id="plcCharges" class="form-control" [(ngModel)]="rawhouse.plcCharge" min="0">
+                </td>
+                <td>
+                  <input type="number" id="Cost" class="form-control" [(ngModel)]="rawhouse.amount" min="0">
+                </td>
+                <td>
+                  <input type="number" id="Guideline" class="form-control" [(ngModel)]="rawhouse.guideLineValue" min="0">
+                </td>
+                <td>  
+                  <select class="form-control" id="InventoryType" name="InventoryType" placeholder="Select InventoryType" [(ngModel)]="rawhouse.inventoryType">
+                    <option value="" selected>Select Type</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="nonAgriculture">Non Agriculture</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" id="Status" class="form-control" [(ngModel)]="rawhouse.status">
+                </td>
+                <td>
+                  <input type="text" id="Remark" class="form-control" placeholder="Remark" [(ngModel)]="rawhouse.remark">
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        
+        <div class="text-center">
+          <button class="btn btn-outline-success" (click)="addRawHouseList()">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

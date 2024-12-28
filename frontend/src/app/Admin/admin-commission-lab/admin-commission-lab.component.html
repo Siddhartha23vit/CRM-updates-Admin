@@ -1,0 +1,122 @@
+<div class="commission-container">
+  <div class="commission-management">
+    <h2>
+      <i class="fas fa-chart-line me-2"></i>
+      Commission Management
+    </h2>
+    <p>Track and manage commission structures efficiently</p>
+  </div>
+
+  <div class="container-fluid p-4">
+    <div class="row">
+      <div class="card main-card slide-up">
+        <div class="card-header commission-slab-header">
+          <div class="slab-title-section">
+            <div class="slab-icon">
+              <i class="fas fa-layer-group"></i>
+            </div>
+            <div class="slab-text">
+              <h2>Commission Slab</h2>
+              <p>Manage your commission structure</p>
+            </div>
+          </div>
+          <button class="btn-associate-list" [routerLink]="['/Admin','AdminAssociate']">
+            <i class="fas fa-users"></i>
+            Associate List
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="card-body p-4">
+          <div class="search-section glass-card p-4 mb-4">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="assApplicantDesignation" class="form-label">
+                    <i class="fas fa-user-tag me-2 gradient-text"></i>
+                    Sponsor By<span class="text-danger">*</span>
+                  </label>
+                  <div class="select-wrapper">
+                    <select class="form-select custom-select" id="assApplicantDesignation" 
+                            name="assApplicantDesignation" required [(ngModel)]="searchdes">
+                      <option value="" selected>All Sponsors</option>
+                      <ng-container *ngFor="let designation of designations">
+                        <option [value]="designation">{{designation}}</option>
+                      </ng-container>
+                    </select>
+                    <i class="fas fa-chevron-down select-icon"></i>
+                  </div>
+                  <button class="btn gradient-button mt-3 w-100 ripple" (click)="searchAss()">
+                    <i class="fas fa-search me-2"></i>Search Records
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="stats-cards">
+                  <div class="stat-card">
+                    <i class="fas fa-users gradient-text"></i>
+                    <div class="stat-content">
+                      <h3>{{associates.length || 0}}</h3>
+                      <p>Total Associates</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container fade-in">
+            <div class="table-header d-flex justify-content-between align-items-center">
+              <h3 class="mb-3">
+                <i class="fas fa-list me-2 gradient-text"></i>
+                Commission Records
+              </h3>
+              <div class="table-actions">
+                <button class="btn btn-outline-primary btn-sm me-2">
+                  <i class="fas fa-file-excel me-1"></i> Export
+                </button>
+                <button class="btn btn-outline-secondary btn-sm">
+                  <i class="fas fa-filter me-1"></i> Filter
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive custom-scrollbar">
+              <table class="table table-hover custom-table">
+                <thead class="gradient-header text-white">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Associate Name</th>
+                    <th scope="col">Sponsor Name</th>
+                    <th scope="col">Sponsor Designation</th>
+                    <th scope="col">Sponsor Commission</th>
+                    <th scope="col">Commission</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let associate of associates; let i = index" 
+                      class="table-row-animate">
+                    <td class="fw-bold">{{i+1}}</td>
+                    <td><span class="badge bg-info shine">{{associate.uniqueId}}</span></td>
+                    <td>{{associate.applicantDesignation}}</td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="avatar-circle me-2">{{associate.fullName.charAt(0)}}</div>
+                        {{associate.fullName}}
+                      </div>
+                    </td>
+                    <td>{{associate.sponsorBy}}</td>
+                    <td>{{associate.sponsorDesignation}}</td>
+                    <td><span class="badge bg-success shine">{{associate.Sponsorcommission}}</span></td>
+                    <td><span class="badge bg-primary shine">{{associate.commission}}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

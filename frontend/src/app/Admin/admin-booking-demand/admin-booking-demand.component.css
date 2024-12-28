@@ -1,0 +1,171 @@
+/* Clean Background */
+:host {
+  background: #ffffff; /* Keeping the background white for contrast */
+  min-height: 100vh;
+  display: block;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Color Variables */
+:root {
+  --primary-color: #FF00D4; /* Main color */
+  --background-color: #f8f9fa; /* Background color */
+  --text-color: white; /* Text color */
+  --border-color: #dee2e6; /* Border color */
+  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
+  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+}
+
+/* Booking Demand Container */
+.booking-demand-container {
+  padding: 24px;
+  background: var(--background-color);
+  min-height: 100vh;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+.section-title {
+  font-size: 28px;
+  color: #1a1f36;
+  margin-bottom: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--light-gradient);
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 24px;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header */
+.card-header-custom {
+  background: var(--header-gradient);
+  color: var(--text-color);
+  padding: 20px 24px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-custom h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Gradient Button */
+.gradient-btn {
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gradient-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 153, 255, 0.3);
+  background: linear-gradient(to right, #0099ff, #00ffcc);
+}
+
+/* Custom Table */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  margin: 1rem 0;
+}
+
+.custom-table thead th {
+  background: var(--header-gradient);
+  color: var(--text-color);
+  padding: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.custom-table tbody tr {
+  background: var(--light-gradient);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.custom-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.custom-table td {
+  padding: 16px;
+  vertical-align: middle;
+  border: none;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+  color: #1a1f36;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booking-demand-container {
+    padding: 16px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card-header-custom {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .gradient-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .custom-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .custom-table td,
+  .custom-table th {
+    padding: 12px;
+    font-size: 13px;
+  }
+}

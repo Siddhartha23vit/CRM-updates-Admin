@@ -1,0 +1,133 @@
+<div class="main-container">
+  <div class="content-card">
+    <!-- Header Section -->
+    <div class="card-header-gradient">
+      <div class="header-content">
+        <h1><i class="fas fa-building"></i> Building Management</h1>
+        <div class="header-buttons">
+          <button class="gradient-btn">
+            <i class="fas fa-plus-circle"></i> Add New Project
+          </button>
+          <button class="gradient-btn">
+            <i class="fas fa-list"></i> Project List
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body-content">
+      <!-- Search Section -->
+      <div class="search-container">
+        <div class="search-wrapper">
+          <div class="input-group">
+            <div class="select-wrapper">
+              <i class="fas fa-project-diagram select-icon"></i>
+              <select class="custom-select" id="projectName" name="searchType" 
+                      [(ngModel)]="selectedProject" (change)="onProjectSelected()">
+                <option value="" disabled selected>Select Project</option>
+                <ng-container *ngFor="let project of projects">
+                  <ng-container *ngIf="project.totalBuilding">
+                    <option [ngValue]="project">{{ project.projectName }}</option>
+                  </ng-container>
+                </ng-container>
+              </select>
+            </div>
+            <button class="search-btn">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Info Card -->
+      <div class="project-info-card" *ngIf="selectedProject">
+        <div class="info-card-content">
+          <i class="fas fa-building-circle-check info-icon"></i>
+          <div class="info-text">
+            <h4>{{ selectedProject.projectName }}</h4>
+            <p>Total Buildings: {{ selectedProject.totalBuilding }}</p>
+            <div class="date-info">
+              <span><i class="fas fa-calendar-start"></i> Start: {{ selectedProject.startDate | date }}</span>
+              <span><i class="fas fa-calendar-check"></i> Completion: {{ selectedProject.completionDate | date }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buildings Table -->
+      <div class="table-container" *ngIf="selectedProject">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th><i class="fas fa-building"></i> Building Name</th>
+              <th><i class="fas fa-layers"></i> Total Floors</th>
+              <th><i class="fas fa-door-open"></i> Total Flats</th>
+              <th><i class="fas fa-info-circle"></i> Status</th>
+              <th><i class="fas fa-calendar-plus"></i> Start Date</th>
+              <th><i class="fas fa-calendar-check"></i> Completion Date</th>
+              <th><i class="fas fa-star"></i> Amenities</th>
+              <th><i class="fas fa-comment"></i> Remarks</th>
+              <th><i class="fas fa-cog"></i> Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let building of buildingInputs">
+              <tr>
+                <td>
+                  <input type="text" class="form-input" [(ngModel)]="building.buildingName"
+                         placeholder="Enter Building Name"/>
+                </td>
+                <td>
+                  <input type="number" class="form-input" [(ngModel)]="building.buildingFloor"
+                         placeholder="Total Floors" min="0"/>
+                </td>
+                <td>
+                  <input type="number" class="form-input" [(ngModel)]="building.buildingflat"
+                         placeholder="Total Flats" min="0"/>
+                </td>
+                <td>
+                  <select class="form-input" [(ngModel)]="building.buildingStatus">
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="Under Construction">Under Construction</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="date" class="form-input" [(ngModel)]="building.buildingStartDate"/>
+                </td>
+                <td>
+                  <input type="date" class="form-input" [(ngModel)]="building.buildingCompletionDate"/>
+                </td>
+                <td>
+                  <select class="form-input">
+                    <option value="" disabled selected>Select Amenities</option>
+                    <ng-container *ngFor="let amenity of amenities">
+                      <ng-container *ngIf="amenity.amenityType === 'Building'">
+                        <option [ngValue]="amenity">{{ amenity.amenity }}</option>
+                      </ng-container>
+                    </ng-container>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="form-input" [(ngModel)]="building.remark"
+                         placeholder="Enter Remarks"/>
+                </td>
+                <td>
+                  <button class="action-btn update">
+                    <i class="fas fa-edit"></i> Update
+                  </button>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        
+        <div class="action-buttons">
+          <button class="save-btn" (click)="addBuildingList()">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+/* Color Variables */
+:root {
+  --primary-color: #FF00D4; /* Main color */
+  --background-color: #f8f9fa; /* Background color */
+  --text-color: white; /* Text color */
+  --border-color: #dee2e6; /* Border color */
+  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
+  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+}
+
+@import '../../../styles/admin-shared.css';
+
+.site-visit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  animation: fadeIn 0.8s ease;
+}
+
+.visit-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  animation: slideIn 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.visit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  background: var(--header-gradient);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.visit-header h3 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+.visit-date {
+  color: #a8c7ff;
+  font-size: 0.9rem;
+}
+
+.visit-details {
+  margin: 1rem 0;
+}
+
+.visit-details p {
+  margin: 0.5rem 0;
+  color: #e6e6e6;
+}
+
+.visit-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .site-visit-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+}

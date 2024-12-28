@@ -1,0 +1,82 @@
+<div class="general-master-container">
+  <h1 class="page-title">General Master</h1>
+  <hr class="title-divider">
+  
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="sidebar">
+      <ul class="side-nav-links">
+        <li [routerLink]="['AdminDesignation']" routerLinkActive="active">
+          <mat-icon>work</mat-icon>
+          <span>Designation</span>
+        </li>
+        <li [routerLink]="['AdminBank']" routerLinkActive="active">
+          <mat-icon>account_balance</mat-icon>
+          <span>Bank</span>
+        </li>
+        <li [routerLink]="['AdminUserType']" routerLinkActive="active">
+          <mat-icon>people</mat-icon>
+          <span>User Type</span>
+        </li>
+        <li [routerLink]="['AdminCity']" routerLinkActive="active">
+          <mat-icon>location_city</mat-icon>
+          <span>City</span>
+        </li>
+        <li [routerLink]="['AdminCharges']" routerLinkActive="active">
+          <mat-icon>payment</mat-icon>
+          <span>Charges</span>
+        </li>
+        <li [routerLink]="['AdminFacing']" routerLinkActive="active">
+          <mat-icon>rotate_90_degrees_ccw</mat-icon>
+          <span>Facing</span>
+        </li>
+        <li [routerLink]="['AdminDirection']" routerLinkActive="active">
+          <mat-icon>explore</mat-icon>
+          <span>Direction</span>
+        </li>
+        <li [routerLink]="['AdminInquiryStatus']" routerLinkActive="active">
+          <mat-icon>help_outline</mat-icon>
+          <span>Inquiry Status</span>
+        </li>
+        <li [routerLink]="['AdminDoucmentType']" routerLinkActive="active">
+          <mat-icon>description</mat-icon>
+          <span>Document Type</span>
+        </li>
+        <li [routerLink]="['AdminFlatType']" routerLinkActive="active">
+          <mat-icon>apartment</mat-icon>
+          <span>Flat Type</span>
+        </li>
+        <li [routerLink]="['AdminRawHouseType']" routerLinkActive="active">
+          <mat-icon>home</mat-icon>
+          <span>Row House Type</span>
+        </li>
+        <li [routerLink]="['AdminFarmLandType']" routerLinkActive="active">
+          <mat-icon>grass</mat-icon>
+          <span>Farm Land Type</span>
+        </li>
+        <li [routerLink]="['AdminLeadSource']" routerLinkActive="active">
+          <mat-icon>source</mat-icon>
+          <span>Lead Source</span>
+        </li>
+        <li [routerLink]="['AdminProjectProcess']" routerLinkActive="active">
+          <mat-icon>engineering</mat-icon>
+          <span>Project Process</span>
+        </li>
+        <li [routerLink]="['AdminAmenities']" routerLinkActive="active">
+          <mat-icon>pool</mat-icon>
+          <span>Amenities</span>
+        </li>
+        <li [routerLink]="['AdminInventoryType']" routerLinkActive="active">
+          <mat-icon>inventory_2</mat-icon>
+          <span>Inventory Type</span>
+        </li>
+        <li [routerLink]="['AdminDediction']" routerLinkActive="active">
+          <mat-icon>remove_circle_outline</mat-icon>
+          <span>Deduction Type</span>
+        </li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

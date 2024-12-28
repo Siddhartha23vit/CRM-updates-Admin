@@ -1,0 +1,89 @@
+<div class="booking-container animate__animated animate__fadeIn">
+  <h2 class="section-title">Bookings Management</h2>
+  
+  <!-- Search Panel -->
+  <form>
+    <div class="container mt-4">
+      <div class="glass-card animate__animated animate__slideInDown">
+        <div class="card-header-custom">
+          <h3><i class="fas fa-search"></i> Search Panel</h3>
+          <button class="btn gradient-btn">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+        <div class="card-body">
+          <!-- Add your search fields here -->
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bookings List -->
+  <div class="container-fluid mt-4">
+    <div class="glass-card animate__animated animate__slideInUp">
+      <div class="card-header-custom">
+        <h3><i class="fas fa-list"></i> Bookings List</h3>
+        <div class="action-buttons">
+          <button class="btn gradient-btn" [routerLink]="['/Admin','AdminBooking','AdminAddBooking']">
+            <i class="fas fa-plus"></i> Add
+          </button>
+          <button class="btn gradient-btn">
+            <i class="fas fa-file-import"></i> Import
+          </button>
+          <button class="btn gradient-btn">
+            <i class="fas fa-file-export"></i> Export
+          </button>
+        </div>
+      </div>
+      
+      <div class="table-responsive">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Booking No</th>
+              <th>Visit No</th>
+              <th>Customer</th>
+              <th>Particular</th>
+              <th>Associate</th>
+              <th>Remark</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let items of Bookings; let i = index" class="animate__animated animate__fadeIn">
+              <td>{{i+1}}</td>
+              <td>{{items.visit}}</td>
+              <td>
+                <div class="info-cell">
+                  <span class="primary-text">{{items.AssociateName}}</span>
+                  <span class="secondary-text">{{items.associatenumber}}</span>
+                  <span class="secondary-text">{{items.associatenumber}}</span>
+                </div>
+              </td>
+              <td>{{items.project}}</td>
+              <td>
+                <div class="info-cell">
+                  <span class="primary-text">{{items.AssociateName}}</span>
+                  <span class="secondary-text">{{items.associatenumber}}</span>
+                  <span class="secondary-text">{{items.associatenumber}}</span>
+                </div>
+              </td>
+              <td>{{items.remark}}</td>
+              <td>
+                <div class="action-cell">
+                  <button class="btn action-btn update-btn" title="Update">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn action-btn delete-btn" (click)="deletebooking(items._id)" title="Delete">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  

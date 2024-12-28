@@ -1,0 +1,115 @@
+/* Color Variables */
+:root {
+  --primary-color: #FF00D4; /* Main color */
+  --background-color: #f8f9fa; /* Background color */
+  --text-color: white; /* Text color */
+  --border-color: #dee2e6; /* Border color */
+  --header-gradient: linear-gradient(135deg, #4b6cb7, #182848); /* Header gradient */
+  --light-gradient: linear-gradient(to right, #ffffff, #f8f9fa); /* Light gradient */
+}
+
+/* Main Container */
+.container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--background-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Gradient */
+.header-gradient {
+  background: var(--header-gradient);
+  color: var(--text-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Section Styling */
+.section {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Title Styling */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #444;
+}
+
+.custom-select {
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 0, 212, 0.25);
+}
+
+/* Button Styles */
+.btn {
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  background: var(--header-gradient);
+  color: var(--text-color);
+  padding: 1rem;
+  font-weight: 600;
+}
+
+.table tbody td {
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,114 @@
+<div class="loan-progress-container">
+  <!-- Page Header with gradient -->
+  <div class="page-header">
+    <h2 class="fade-in">Loan Progress Management</h2>
+  </div>
+
+  <!-- Search Panel -->
+  <form class="slide-in-top">
+    <div class="container mt-4">
+      <div class="search-card">
+        <div class="search-header">
+          <h3><i class="fas fa-search"></i> Search Panel</h3>
+          <button class="btn-gradient">
+            <i class="fas fa-search"></i> Search
+            <span class="btn-gradient-hover"></span>
+          </button>
+        </div>
+        <div class="search-body">
+          <div class="row">
+            <!-- Add your search fields here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Main Content -->
+  <div class="container-fluid mt-4 slide-in-bottom">
+    <div class="content-card">
+      <div class="content-header">
+        <h3><i class="fas fa-chart-line"></i> Loan Progress</h3>
+        <div class="action-buttons">
+          <button class="btn-gradient" [routerLink]="['/Admin', 'AdminSiteVisit', 'AddSiteVisit']">
+            <i class="fas fa-plus"></i> Add
+          </button>
+          <button class="btn-gradient">
+            <i class="fas fa-file-import"></i> Import
+          </button>
+          <button class="btn-gradient">
+            <i class="fas fa-file-export"></i> Export
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Action</th>
+              <th scope="col">Project</th>
+              <th scope="col">Unit Type</th>
+              <th scope="col">Unit Details</th>
+              <th scope="col">Unit Size</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Booking Date	</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Mobile Number</th>
+              <th scope="col">Seller Name</th>
+              <th scope="col">Mode</th>
+              <th scope="col">Bank</th>
+              <th scope="col">Banker</th>
+              <th scope="col">Banker Number</th>
+              <th scope="col">Loan Progress Type</th>
+              <th scope="col">Loan Progress Status</th>
+              <th scope="col">Loan (%)</th>
+              <th scope="col">Loan Progress Description</th>
+              <th scope="col">Paper Tyep</th>
+              <th scope="col">Paper Status</th>
+              <th scope="col">Paper(%)</th>
+              <th scope="col">Paper Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="fade-in">
+              <td>
+                <div class="action-buttons">
+                  <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                  <button class="btn-icon" title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+              </td>
+              <td>14-02-2024</td>
+              <td>
+                <div class="info-block">
+                  <span class="label">Name:</span>
+                  <span class="label">D.O.B:</span>
+                  <span class="label">Father Name:</span>
+                </div>
+              </td>
+              <td>Hyderabad</td>
+              <td>Update delete edit</td>
+              <td>14-02-2024</td>
+              <td>Name:  <br><span>D.O.B:</span><br><span>Father Name:</span></td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+              <td>Hyderabad</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+  

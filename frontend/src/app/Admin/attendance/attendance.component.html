@@ -1,0 +1,106 @@
+<div class="attendance-container">
+  <h2 class="page-title">
+    <i class="fas fa-calendar-check"></i>
+    Attendance Management
+  </h2>
+
+  <div class="card-header">
+    <div class="d-flex align-items-center gap-4">
+      <h3 class="mb-0">
+        <i class="fas fa-list header-icon"></i>
+        Attendance List
+      </h3>
+      
+      <div class="entries-section">
+        <i class="fas fa-eye"></i>
+        <label for="itemsPerPage" class="mb-0 me-2">Show</label>
+        <select id="itemsPerPage" class="form-control" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="all">All</option>
+        </select>
+        <label for="itemsPerPage" class="mb-0 ms-2">entries</label>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="custom-outline-pink" [routerLink]="['/Admin', 'AdminAttendance', 'Markattendance']">
+        <i class="fas fa-user-plus"></i>
+        <span>Add Attendance</span>
+      </button>
+      <button class="custom-outline-pink" (click)="copyProjects()">
+        <i class="fas fa-copy"></i>
+        <span>Copy</span>
+      </button>
+      <button class="custom-outline-pink" (click)="generatePDF()">
+        <i class="fas fa-file-pdf"></i>
+        <span>Export PDF</span>
+      </button>
+      <button class="custom-outline-pink" (click)="downloadWordFile()">
+        <i class="fas fa-file-word"></i>
+        <span>Export Word</span>
+      </button>
+      <button class="custom-outline-pink" (click)="generateExcelFile()">
+        <i class="fas fa-file-excel"></i>
+        <span>Export Excel</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div class="table-scrollable">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><i class="far fa-calendar table-icon"></i>Date</th>
+            <th><i class="far fa-user table-icon"></i>Name</th>
+            <th><i class="far fa-check-circle table-icon"></i>Status</th>
+            <th><i class="far fa-folder table-icon"></i>Project</th>
+            <th><i class="far fa-comment table-icon"></i>Remark</th>
+            <th><i class="fas fa-cog table-icon"></i>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of paginatedattendance">
+            <td>
+              <i class="far fa-calendar-alt table-icon"></i>
+              {{ record.Date }}
+            </td>
+            <td>
+              <i class="far fa-user-circle table-icon"></i>
+              {{ record.Name }}
+            </td>
+            <td>
+              <span [ngClass]="{
+                'badge badge-success': record.status === 'Present',
+                'badge badge-danger': record.status === 'Absent',
+                'badge badge-warning': record.status === 'Late'
+              }">
+                <i [class]="record.status === 'Present' ? 'fas fa-check' : 
+                          record.status === 'Absent' ? 'fas fa-times' : 
+                          'fas fa-clock'"></i>
+                {{ record.status }}
+              </span>
+            </td>
+            <td>
+              <i class="far fa-folder-open table-icon"></i>
+              {{ record.Project }}
+            </td>
+            <td>
+              <i class="far fa-comment-dots table-icon"></i>
+              {{ record.Remark }}
+            </td>
+            <td>
+              <button class="btn-delete" (click)="deleteattendance(record._id)" title="Delete Record">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

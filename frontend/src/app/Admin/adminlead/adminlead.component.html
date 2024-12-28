@@ -1,0 +1,208 @@
+<div class="lead">
+
+<form>
+  <div class="container-fluid mt-4">
+    <div class="card shadow-sm gradient-card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="mb-0">
+          <i class="fas fa-search me-2"></i>
+          Lead Search
+        </h2>
+        <button class="btn btn-gradient-primary">
+          <i class="fas fa-search me-2"></i>
+          Search
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="far fa-calendar-alt me-2"></i>
+                Plan Date
+              </label>
+              <input type="date" class="form-control custom-input" name="PlanDate" [(ngModel)]="startDate">
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-filter me-2"></i>
+                Source
+              </label>
+              <select class="form-select custom-select">
+                <option value="" disabled selected>Select Source</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Plot">Plot</option>
+                <option value="RawHouse">Raw House</option>
+                <option value="FarmLand">Farm Land</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-comments me-2"></i>
+                Communication
+              </label>
+              <select class="form-select custom-select">
+                <option value="" disabled selected>Select Communication</option>
+                <option value="Phone">Phone</option>
+                <option value="Email">Email</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Meeting">Meeting</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-city me-2"></i>
+                City
+              </label>
+              <input type="text" class="form-control custom-input" placeholder="Enter city">
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="form-label">
+                <i class="fas fa-tasks me-2"></i>
+                Status
+              </label>
+              <select class="form-select custom-select">
+                <option value="" disabled selected>Select Status</option>
+                <option value="CompeleteSold">Complete Sold</option>
+                <option value="Compeleted">Completed</option>
+                <option value="UnderConstruction">Under Construction</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="container-fluid mt-4">
+  <div class="card shadow-sm gradient-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h2 class="mb-0">
+        <i class="fas fa-list me-2"></i>
+        Lead List
+      </h2>
+      
+      <div class="d-flex align-items-center">
+        <div class="entries-selector me-4">
+          <label class="me-2">Show</label>
+          <select class="form-select form-select-sm d-inline-block w-auto" [(ngModel)]="itemsPerPage">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="all">All</option>
+          </select>
+          <label class="ms-2">entries</label>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn btn-gradient-success me-2" [routerLink]="['/Admin', 'AdminLead', 'AddLead']">
+            <i class="fas fa-plus me-2"></i>Add
+          </button>
+          <button class="btn btn-gradient-info me-2">
+            <i class="fas fa-file-import me-2"></i>Import
+          </button>
+          <button class="btn btn-gradient-warning">
+            <i class="fas fa-file-export me-2"></i>Export
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="gradient-header">
+          <tr>
+            <th>Lead No</th>
+            <th>Status</th>
+            <th>Prospect Details</th>
+            <th>Plan Date</th>
+            <th>Followup</th>
+            <th>Assigned To</th>
+            <th>Source</th>
+            <th>Created By</th>
+            <th>Project</th>
+            <th>Interest</th>
+            <th>Budget</th>
+            <th>Remarks</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of Leads; let i = index">
+            <td class="text-center">{{i+1}}</td>
+            <td>
+              <span class="badge rounded-pill" [ngClass]="{
+                'bg-success': items.visitInquiryStatus.inquiryStatus === 'Completed',
+                'bg-warning': items.visitInquiryStatus.inquiryStatus === 'Pending',
+                'bg-info': items.visitInquiryStatus.inquiryStatus === 'In Progress'
+              }">
+                {{items.visitInquiryStatus.inquiryStatus}}
+              </span>
+            </td>
+            <td>
+              <div class="prospect-card">
+                <h6 class="mb-2">{{items.leadName.fullName}}</h6>
+                <div class="contact-info">
+                  <a href="https://wa.me/{{items.leadName.whatsappNumber}}" class="contact-link">
+                    <i class="fab fa-whatsapp"></i> {{items.leadName.whatsappNumber}}
+                  </a>
+                  <a href="tel:{{items.leadName.mobileNumber}}" class="contact-link">
+                    <i class="fas fa-phone"></i> {{items.leadName.mobileNumber}}
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="date-info">
+                <span class="date">{{items.visitPlanDate | date: 'dd-MM-yyyy'}}</span>
+                <span class="day">{{items.visitPlanDate | date: 'EEEE'}}</span>
+              </div>
+            </td>
+            <td>{{items.visitFollowupRemark}}</td>
+            <td>{{items.AssignTo.fullName}}</td>
+            <td>{{items.sourceOfLeads.leadSourceType}}</td>
+            <td>Admin</td>
+            <td>{{items.projects.projectName}}</td>
+            <td>
+              <span *ngIf="items.intrestedIn.type === 'flat'">{{items.intrestedIn.flatType}}</span>
+              <span *ngIf="items.intrestedIn.type === 'rowhouse'">{{items.intrestedIn.rowhouseType}}</span>
+              <span *ngIf="items.intrestedIn.type === 'farmland'">{{items.intrestedIn.farmlandType}}</span>
+            </td>
+            <td>₹{{items.budgetUpto}}</td>
+            <td>{{items.leadRemark}}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn btn-sm btn-outline-danger me-1" (click)="deleteLead(items._id)">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-primary" (click)="updateLeads(items)">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-footer">
+      <span>Showing {{totalEntries}} out of {{totalCount}} entries</span>
+    </div>
+  </div>
+</div>
+</div>

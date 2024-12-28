@@ -1,0 +1,111 @@
+<div class="main-container">
+  <!-- Add Project Demand Form -->
+  <div class="card">
+    <div class="gradient-header">
+      <h2 class="header-title">
+        <i class="fas fa-chart-line"></i>
+        Project Demand
+      </h2>
+    </div>
+    <div class="card-body">
+      <form #projectDemandForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="projectName">
+                <i class="fas fa-project-diagram"></i> Project Name
+              </label>
+              <input type="text" class="form-control" id="projectName" name="projectName" [(ngModel)]="projectDemand.projectName" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="flatType">
+                <i class="fas fa-home"></i> Flat Type
+              </label>
+              <input type="text" class="form-control" id="flatType" name="flatType" [(ngModel)]="projectDemand.flatType" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="demand">
+                <i class="fas fa-chart-bar"></i> Demand
+              </label>
+              <input type="number" class="form-control" id="demand" name="demand" [(ngModel)]="projectDemand.demand" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label" for="status">
+                <i class="fas fa-info-circle"></i> Status
+              </label>
+              <select class="form-control" id="status" name="status" [(ngModel)]="projectDemand.status" required>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button type="submit" class="btn btn-primary" [disabled]="!projectDemandForm.valid">
+            <i class="fas fa-save"></i> Submit
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="resetForm()">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Project Demand List -->
+  <div class="card">
+    <div class="gradient-header">
+      <h2 class="header-title">
+        <i class="fas fa-list"></i>
+        Project Demand List
+      </h2>
+    </div>
+    <div class="card-body">
+      <div class="search-section">
+        <input type="text" class="search-input" placeholder="Search project demands..." [(ngModel)]="searchTerm">
+      </div>
+
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th><i class="fas fa-project-diagram"></i> Project Name</th>
+              <th><i class="fas fa-home"></i> Flat Type</th>
+              <th><i class="fas fa-chart-bar"></i> Demand</th>
+              <th><i class="fas fa-info-circle"></i> Status</th>
+              <th><i class="fas fa-cogs"></i> Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let demand of projectDemands">
+              <td>{{demand.projectName}}</td>
+              <td>{{demand.flatType}}</td>
+              <td>{{demand.demand}}</td>
+              <td>{{demand.status}}</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="action-btn btn-edit" (click)="editProjectDemand(demand)">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="action-btn btn-delete" (click)="deleteProjectDemand(demand._id)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> 

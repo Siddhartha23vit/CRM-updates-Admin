@@ -1,0 +1,148 @@
+.main-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.gradient-header {
+  background: linear-gradient(90deg, #00e5ff 0%, #2979ff 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.gradient-list {
+  background: linear-gradient(90deg, #00e5ff 0%, #2979ff 100%);
+  color: white;
+  padding: 1.5rem;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-search {
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  background-color: #2979ff;
+  color: white;
+}
+
+.radio-group {
+  padding: 10px 0;
+}
+
+.custom-radio label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.search-input {
+  padding-left: 35px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.entries-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.entries-select label {
+  margin-bottom: 0;
+  color: #666;
+}
+
+.btn-export {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  margin-left: 10px;
+  padding: 6px 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-export:hover {
+  background-color: white;
+  color: #2979ff;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table-row {
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background-color: #f8f9fa;
+}
+
+.action-buttons .btn {
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.table-row {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .entries-select {
+    margin-top: 15px;
+  }
+}

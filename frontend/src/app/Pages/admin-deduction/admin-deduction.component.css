@@ -1,0 +1,19 @@
+.invalid-input{
+    border: 1px solid red;
+}
+.col-md-8 {
+    padding-left: 10%;
+  }
+  .custom-outline-pink {
+    background-color: transparent;
+    border: 2px solid #FF00D4;
+    color: #FF00D4;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  }
+  
+  .custom-outline-pink:hover {
+    background-color: #FF00D4;
+    color: white; /* Text changes to white for better contrast */
+  }
+  
+  

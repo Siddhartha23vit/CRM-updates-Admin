@@ -1,0 +1,144 @@
+<mat-toolbar [ngClass]="{'dark-theme': isDarkMode}">
+  <mat-toolbar-row>
+    <button mat-icon-button class="collapse-btn" (click)="toggleCollapse()">
+      <mat-icon>{{ isCollapsed ? 'menu' : 'menu_open' }}</mat-icon>
+    </button>
+    <span class="brand-title" [class.collapsed]="isCollapsed">BridgeQuest Infotech</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button class="theme-toggle-btn" (click)="toggleTheme()" [matTooltip]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+      <mat-icon class="theme-icon">{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side" [class.collapsed]="isCollapsed" [ngClass]="{'dark-theme': isDarkMode}">
+    <!-- Logo Section -->
+    <!-- <div class="logo-section">
+      <img src="assets/Logo.png" [class.collapsed]="isCollapsed" alt="Company Logo">
+    </div> -->
+
+    <!-- Navigation Links -->
+    <ul class="side-nav-links">
+      <!-- Dashboard -->
+      <li [routerLink]="['AdminDashboard']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Dashboard_1.png" alt="Dashboard">
+        <span>Dashboard</span>
+        <div class="tooltip" *ngIf="isCollapsed">Dashboard</div>
+      </li>
+
+      <!-- General Master -->
+      <li [routerLink]="['AdminGeneralMaster']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/General Master.png" alt="General Master">
+        <span>General Master</span>
+        <div class="tooltip" *ngIf="isCollapsed">General Master</div>
+      </li>
+
+      <!-- Attendance -->
+      <li [routerLink]="['AdminAttendance']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/attendance.png" alt="Attendance">
+        <span>Attendance</span>
+        <div class="tooltip" *ngIf="isCollapsed">Attendance</div>
+      </li>
+
+      <!-- Projects Dropdown -->
+      <li class="nav-item" [class.active]="toggleLeadsDropdown" (click)="toggleDropdown('leads', $event)">
+        <img src="assets/Icons/Project.png" alt="Projects">
+        <span>Projects</span>
+        <mat-icon class="dropdown-icon">{{ toggleLeadsDropdown ? 'expand_less' : 'expand_more' }}</mat-icon>
+        <div class="tooltip" *ngIf="isCollapsed">Projects</div>
+      </li>
+
+      <!-- Projects Submenu -->
+      <div class="submenu" [class.collapsed]="isCollapsed" *ngIf="toggleLeadsDropdown" [@submenuAnimation]>
+        <li [routerLink]="['AdminProjectList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/Projectlist.png" alt="Project List">
+          <span>Project List</span>
+        </li>
+        <li [routerLink]="['AdminBuildingList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/Buildinglist.png" alt="Building List">
+          <span>Building List</span>
+        </li>
+        <li [routerLink]="['AdminFloorList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/floorlist.png" alt="Floor List">
+          <span>Floor List</span>
+        </li>
+        <li [routerLink]="['AdminFlatList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/faltlist.png" alt="Flat List">
+          <span>Flat List</span>
+        </li>
+        <li [routerLink]="['AdminPlotList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/plotlist.png" alt="Plot List">
+          <span>Plot List</span>
+        </li>
+      </div>
+      <!-- Associate Form Dropdown -->
+      <li class="nav-item" [class.active]="toggleAcciocateDropdown" (click)="toggleDropdown('associate', $event)">
+        <img src="assets/Icons/Associateform.png" alt="Associate Form">
+        <span>Associate Form</span>
+        <mat-icon class="dropdown-icon">{{ toggleAcciocateDropdown ? 'expand_less' : 'expand_more' }}</mat-icon>
+        <div class="tooltip" *ngIf="isCollapsed">Associate Form</div>
+      </li>
+
+      <!-- Associate Form Submenu -->
+      <div class="submenu" [class.collapsed]="isCollapsed" *ngIf="toggleAcciocateDropdown" [@submenuAnimation]>
+        <li [routerLink]="['AdminAssociate']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/associatesformlist.png" alt="Associate Form List">
+          <span>Associate Form List</span>
+        </li>
+        <li [routerLink]="['AdminCommissionLab']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/commissionlab.png" alt="Commission Lab">
+          <span>Commission Lab</span>
+        </li>
+      </div>
+
+      <!-- Customer -->
+      <li [routerLink]="['AdminCustomer']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Customers png.png" alt="Customer">
+        <span>Customer</span>
+        <div class="tooltip" *ngIf="isCollapsed">Customer</div>
+      </li>
+
+      <!-- Lead -->
+      <li [routerLink]="['AdminLead']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Leads.png" alt="Lead">
+        <span>Lead</span>
+        <div class="tooltip" *ngIf="isCollapsed">Lead</div>
+      </li>
+
+      <!-- Booking -->
+      <li [routerLink]="['AdminBooking']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/booking.png" alt="Booking">
+        <span>Booking</span>
+        <div class="tooltip" *ngIf="isCollapsed">Booking</div>
+      </li>
+
+      <!-- Project Demand -->
+      <li [routerLink]="['AdminProjectDenamd']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/demand.png" alt="Project Demand">
+        <span>Project Demand</span>
+        <div class="tooltip" *ngIf="isCollapsed">Project Demand</div>
+      </li>
+
+      <!-- Privacy Policy -->
+      <li [routerLink]="['AdminPrivacyPolicy']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/privacy-policy.png" alt="Privacy Policy">
+        <span>Privacy Policy</span>
+        <div class="tooltip" *ngIf="isCollapsed">Privacy Policy</div>
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item logout" (click)="logout()">
+        <img src="assets/Icons/Logout_1.png" alt="Logout">
+        <span>Log Out</span>
+        <div class="tooltip" *ngIf="isCollapsed">Log Out</div>
+      </li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content [class.content-shifted]="isCollapsed">
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

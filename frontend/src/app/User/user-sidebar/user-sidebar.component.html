@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="nav-content">
+    <a (click)="toggleSideNav()" class="side-nav-button">
+      <i class="fa-solid fa-bars pulse"></i>
+    </a>
+    <a class="navbar-brand" href="#">
+      <span class="company-name">Company Name</span>
+    </a>
+  </div>
+</nav>
+
+<div [ngClass]="{'open': isSideNavOpen}" class="side-nav">
+  <div class="side-nav-header">
+    <div class="logo-container">
+      <img src="assets/images/logo.png" alt="Logo" class="logo">
+    </div>
+    <a (click)="closeSideNav()" class="close-button">
+      <i class="fa-solid fa-times"></i>
+    </a>
+  </div>
+
+  <ul class="side-nav-links">
+    <li [routerLink]="['UserDashboard']" routerLinkActive="active">
+      <i class="fa-solid fa-gauge-high"></i>
+      <span>Dashboard</span>
+    </li>
+    <li [routerLink]="['Settings']" routerLinkActive="active">
+      <i class="fa-solid fa-gear"></i>
+      <span>Settings</span>
+    </li>
+    <li [routerLink]="['FAQ']" routerLinkActive="active">
+      <i class="fa-solid fa-circle-question"></i>
+      <span>FAQ</span>
+    </li>
+    <li [routerLink]="['Privacy']" routerLinkActive="active">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Privacy Policy</span>
+    </li>
+    <li [routerLink]="['Logout']" routerLinkActive="active">
+      <i class="fa-solid fa-right-from-bracket"></i>
+      <span>Log Out</span>
+    </li>
+  </ul>
+</div>
+
+<div class="content-container" [ngClass]="{'shifted': isSideNavOpen}">
+  <router-outlet></router-outlet>
+</div>

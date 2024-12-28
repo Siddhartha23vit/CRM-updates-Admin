@@ -1,0 +1,31 @@
+<div class="admin-container">
+  <div class="admin-card">
+    <h2 class="admin-title">Payment Management</h2>
+    
+    <div class="payment-dashboard">
+      <div class="payment-stats">
+        <div class="stat-card">
+          <h3>Total Payments</h3>
+          <p class="stat-value">₹{{totalPayments}}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Pending Payments</h3>
+          <p class="stat-value">₹{{pendingPayments}}</p>
+        </div>
+      </div>
+      
+      <div class="payment-list">
+        <div class="payment-item" *ngFor="let payment of payments">
+          <div class="payment-info">
+            <h4>{{payment.customerName}}</h4>
+            <p>{{payment.date | date}}</p>
+          </div>
+          <div class="payment-amount">
+            <span [class]="payment.status">₹{{payment.amount}}</span>
+            <button class="admin-button">Process</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

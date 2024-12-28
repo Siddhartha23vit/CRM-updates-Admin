@@ -1,0 +1,54 @@
+.invalid-input{
+  border: 1px solid red;
+}
+.col-md-8 {
+  padding-left: 10%;
+}
+.custom-outline-pink {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.custom-outline-pink:hover {
+background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+color: white;
+}.btn-outline-secondary {
+background: transparent;
+color: #2193b0;
+border: 2px solid #2193b0;
+transition: all 0.3s ease;
+padding: 8px 20px;
+border-radius: 6px;
+font-weight: 500;
+}
+
+.btn-outline-secondary:hover {
+background: rgba(33, 147, 176, 0.1);
+border-color: #1c7a94;
+color: #1c7a94;
+}
+
+/* Update button style */
+.btn-outline-warning {
+background: linear-gradient(135deg, #2193b0, #6dd5ed);
+border: none;
+color: white;
+padding: 6px 12px;
+border-radius: 4px;
+font-size: 0.875rem;
+transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+background: linear-gradient(135deg, #1c7a94, #5ab8cc);
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(33, 147, 176, 0.3);
+color: white;
+}
