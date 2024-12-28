@@ -1,36 +1,66 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-user-sidebar',
   templateUrl: './user-sidebar.component.html',
-  styleUrls: ['./user-sidebar.component.css']
+  styleUrls: ['./user-sidebar.component.css'],
+  animations: [
+    trigger('submenuAnimation', [
+      state('void', style({
+        height: '0',
+        opacity: 0
+      })),
+      state('*', style({
+        height: '*',
+        opacity: 1
+      })),
+      transition('void <=> *', animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ]
 })
 export class UserSidebarComponent {
-  isSideNavOpen: boolean = false;
+  opened: boolean = true;
+  isDarkMode: boolean = false;
+  isCollapsed: boolean = false;
+  toggleProjectsDropdown = false;
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.updateSideNavVisibility();
+  constructor(private router: Router) {
+    // Initialize theme from localStorage if available
+    const savedTheme = localStorage.getItem('theme');
+    this.isDarkMode = savedTheme === 'dark';
+    const savedCollapsed = localStorage.getItem('sidebarCollapsed');
+    this.isCollapsed = savedCollapsed === 'true';
+    this.applyTheme();
   }
 
-  toggleSideNav() {
-    this.isSideNavOpen = !this.isSideNavOpen;
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    this.applyTheme();
   }
 
-  closeSideNav() {
-    this.isSideNavOpen = false;
+  private applyTheme() {
+    document.body.classList.toggle('dark-theme', this.isDarkMode);
   }
 
-  private updateSideNavVisibility() {
-    if (window.innerWidth <= 768) {
-      this.isSideNavOpen = false;
+  toggleCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+    localStorage.setItem('sidebarCollapsed', this.isCollapsed.toString());
+  }
+
+  toggleDropdown(dropdown: string, event: Event) {
+    event.stopPropagation();
+    switch(dropdown) {
+      case 'projects':
+        this.toggleProjectsDropdown = !this.toggleProjectsDropdown;
+        break;
     }
   }
 
-  constructor(private router: Router) { }
-
-  navigateToUserDashboard() {
-    this.router.navigate(['UserDashboard']);
+  logout(): void {
+    localStorage.removeItem('authToken');
+    this.router.navigate(['/login']);
   }
 }

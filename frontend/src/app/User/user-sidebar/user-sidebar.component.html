@@ -1,48 +1,113 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="nav-content">
-    <a (click)="toggleSideNav()" class="side-nav-button">
-      <i class="fa-solid fa-bars pulse"></i>
-    </a>
-    <a class="navbar-brand" href="#">
-      <span class="company-name">Company Name</span>
-    </a>
-  </div>
-</nav>
+<mat-toolbar [ngClass]="{'dark-theme': isDarkMode}">
+  <mat-toolbar-row>
+    <button mat-icon-button class="collapse-btn" (click)="toggleCollapse()">
+      <mat-icon>{{ isCollapsed ? 'menu' : 'menu_open' }}</mat-icon>
+    </button>
+    <span class="brand-title" [class.collapsed]="isCollapsed">BridgeQuest Infotech</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button class="theme-toggle-btn" (click)="toggleTheme()" [matTooltip]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+      <mat-icon class="theme-icon">{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<div [ngClass]="{'open': isSideNavOpen}" class="side-nav">
-  <div class="side-nav-header">
-    <div class="logo-container">
-      <img src="assets/images/logo.png" alt="Logo" class="logo">
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side" [class.collapsed]="isCollapsed" [ngClass]="{'dark-theme': isDarkMode}">
+    <!-- Navigation Links -->
+    <ul class="side-nav-links">
+      <!-- Dashboard -->
+      <li [routerLink]="['UserDashboard']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Dashboard_1.png" alt="Dashboard">
+        <span>Dashboard</span>
+        <div class="tooltip" *ngIf="isCollapsed">Dashboard</div>
+      </li>
+
+      <!-- Projects Dropdown -->
+      <li class="nav-item" [class.active]="toggleProjectsDropdown" (click)="toggleDropdown('projects', $event)">
+        <img src="assets/Icons/Project.png" alt="Projects">
+        <span>Projects</span>
+        <mat-icon class="dropdown-icon">{{ toggleProjectsDropdown ? 'expand_less' : 'expand_more' }}</mat-icon>
+        <div class="tooltip" *ngIf="isCollapsed">Projects</div>
+      </li>
+
+      <!-- Projects Submenu -->
+      <div class="submenu" [class.collapsed]="isCollapsed" *ngIf="toggleProjectsDropdown" [@submenuAnimation]>
+        <li [routerLink]="['UserProjectList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/Projectlist.png" alt="Project List">
+          <span>Project List</span>
+        </li>
+        <li [routerLink]="['UserBuildingList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/Buildinglist.png" alt="Building List">
+          <span>Building List</span>
+        </li>
+        <li [routerLink]="['UserFloorList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/floorlist.png" alt="Floor List">
+          <span>Floor List</span>
+        </li>
+        <li [routerLink]="['UserFlatList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/faltlist.png" alt="Flat List">
+          <span>Flat List</span>
+        </li>
+        <li [routerLink]="['UserPlotList']" routerLinkActive="active" class="nav-item submenu-item">
+          <img src="assets/Icons/plotlist.png" alt="Plot List">
+          <span>Plot List</span>
+        </li>
+      </div>
+
+      <!-- Customer -->
+      <li [routerLink]="['UserCustomer']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Customers png.png" alt="Customer">
+        <span>Customer</span>
+        <div class="tooltip" *ngIf="isCollapsed">Customer</div>
+      </li>
+
+      <!-- Lead -->
+      <li [routerLink]="['UserLead']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/Leads.png" alt="Lead">
+        <span>Lead</span>
+        <div class="tooltip" *ngIf="isCollapsed">Lead</div>
+      </li>
+
+      <!-- Booking -->
+      <li [routerLink]="['UserBooking']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/booking.png" alt="Booking">
+        <span>Booking</span>
+        <div class="tooltip" *ngIf="isCollapsed">Booking</div>
+      </li>
+
+      <!-- Project Demand -->
+      <li [routerLink]="['UserProjectDemand']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/demand.png" alt="Project Demand">
+        <span>Project Demand</span>
+        <div class="tooltip" *ngIf="isCollapsed">Project Demand</div>
+      </li>
+
+      <!-- Settings -->
+      <li [routerLink]="['Settings']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/settings.png" alt="Settings">
+        <span>Settings</span>
+        <div class="tooltip" *ngIf="isCollapsed">Settings</div>
+      </li>
+
+      <!-- Privacy Policy -->
+      <li [routerLink]="['Privacy']" routerLinkActive="active" class="nav-item">
+        <img src="assets/Icons/privacy-policy.png" alt="Privacy Policy">
+        <span>Privacy Policy</span>
+        <div class="tooltip" *ngIf="isCollapsed">Privacy Policy</div>
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item logout" (click)="logout()">
+        <img src="assets/Icons/Logout_1.png" alt="Logout">
+        <span>Log Out</span>
+        <div class="tooltip" *ngIf="isCollapsed">Log Out</div>
+      </li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content [class.content-shifted]="isCollapsed">
+    <div class="content-container">
+      <router-outlet></router-outlet>
     </div>
-    <a (click)="closeSideNav()" class="close-button">
-      <i class="fa-solid fa-times"></i>
-    </a>
-  </div>
-
-  <ul class="side-nav-links">
-    <li [routerLink]="['UserDashboard']" routerLinkActive="active">
-      <i class="fa-solid fa-gauge-high"></i>
-      <span>Dashboard</span>
-    </li>
-    <li [routerLink]="['Settings']" routerLinkActive="active">
-      <i class="fa-solid fa-gear"></i>
-      <span>Settings</span>
-    </li>
-    <li [routerLink]="['FAQ']" routerLinkActive="active">
-      <i class="fa-solid fa-circle-question"></i>
-      <span>FAQ</span>
-    </li>
-    <li [routerLink]="['Privacy']" routerLinkActive="active">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span>Privacy Policy</span>
-    </li>
-    <li [routerLink]="['Logout']" routerLinkActive="active">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      <span>Log Out</span>
-    </li>
-  </ul>
-</div>
-
-<div class="content-container" [ngClass]="{'shifted': isSideNavOpen}">
-  <router-outlet></router-outlet>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
